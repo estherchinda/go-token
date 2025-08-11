@@ -25,12 +25,11 @@ export default function SideBar() {
             />
         )}
 
-        <img src="/logo.svg" alt="GoCoin" className="h-10" />
-        k
         <div
         className={`fixed top-0 left-0 h-screen w-[254px] bg-white border-r border-gray-200 py-6 mt-0 space-y-2 px-4 z-40 ${
-          mobileOpen ? "translate-x-0" : "-translate-x-full"
+            mobileOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 transition-transform duration-300 ease-in-out`}>
+        <img src="/logo.svg" alt="GoCoin" className="h-10 mb-6 mt-4" />
         {links.map((link, idx) => {
             const isActive = activeLink === link.name; //shorter variable name
             const IconComponent = link.icon; //component for icon

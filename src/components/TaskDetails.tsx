@@ -42,7 +42,7 @@ export default function TaskDetails({ task, onClick }: DetailsProps) {
         Campaign Topic
       </h2>
       <p className="text-sm text-[#55565B]">
-        This Survey is about {task.topic}
+        This Survey is about {task.title}.
       </p>
 
       {/* instructions */}

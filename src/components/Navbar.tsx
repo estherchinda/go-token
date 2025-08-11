@@ -6,7 +6,7 @@ import { useSidebar } from "../context/SidebarContext";
 export default function Navbar () {
     const { openMobile } = useSidebar();
   return (
-    <nav className="h-[89px] w-full p-4 flex justify-between items-center">
+    <nav className="h-[89px] w-full p-4 flex justify-between items-center sticky top-0">
         <div className="flex items-center gap-20">
             <Heading heading="Dashboard" />
 
@@ -37,7 +37,9 @@ export default function Navbar () {
             </div>
 
             {/* menu icon on mobile */}
-            <Menu onClick={openMobile} color="gray" size={25} className="block md:hidden" variant="Outline" />
+            <div onClick={openMobile}>
+                <Menu color="gray" size={25} className="block md:hidden" variant="Outline" />
+            </div>
         </div>
     </nav>
   )
