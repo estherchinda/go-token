@@ -1,5 +1,6 @@
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
+import { SidebarProvider } from "../context/SidebarContext";
 
 export default function BaseLayout({
   children,
@@ -8,19 +9,21 @@ export default function BaseLayout({
 }>) {
 
   return (
-    <div className="flex min-h-screen flex-col md:flex-row">
-      {/* Sidebar */}
-      <div className="w-[254px] hidden md:block flex-none transition-all duration-300 ease-in-out shadow-sm">
-        <Sidebar />
-      </div>
-
-      {/* Main content */}
-      <section className="flex-grow flex flex-col overflow-hidden">
-        <Navbar />
-        <div className="flex-grow overflow-y-auto p-3 md:bg-gray-100">
-          {children}
+    <SidebarProvider>
+        <div className="flex min-h-screen flex-col md:flex-row">
+        {/* Sidebar */}
+        <div className="w-[254px] hidden md:block flex-none transition-all duration-300 ease-in-out shadow-sm">
+            <Sidebar />
         </div>
-      </section>
-    </div>
+
+        {/* Main content */}
+        <section className="flex-grow flex flex-col overflow-hidden">
+            <Navbar />
+            <div className="flex-grow overflow-y-auto p-3 md:bg-gray-100">
+            {children}
+            </div>
+        </section>
+        </div>
+    </SidebarProvider>
   );
 }

@@ -23,7 +23,7 @@ export default function TaskDetails({ task, onClick }: DetailsProps) {
       {/* task details and close button */}
       <div className="flex justify-between items-center">
         <Heading heading="Task Details" className="text-[#393A3F]" />
-        <CloseCircle onClick={onClick} size={20} color="#393A3F" />
+        <CloseCircle onClick={onClick} size={20} color="#393A3F" className="hidden md:block" />
       </div>
 
       {/* status and joined members */}
@@ -46,7 +46,7 @@ export default function TaskDetails({ task, onClick }: DetailsProps) {
       </p>
 
       {/* instructions */}
-      <div className="h-[265px] w-full bg-[#F3F4F6] p-5 rounded-2xl space-y-2.5 my-4">
+      <div className="md:h-[265px] h-full w-full bg-[#F3F4F6] p-5 rounded-2xl space-y-2.5 my-4">
         <div className="gap-2 flex items-center">
             <DocumentText color="#F69626" size={30} variant="Bold" />
             <h2 className="text-[#393A3F] text-xl font-bold leading-[32px]">Instructions</h2>
@@ -79,6 +79,7 @@ export default function TaskDetails({ task, onClick }: DetailsProps) {
         <Button content="Link Instagram" />
       </div>
 
+        {/* file upload */}
       <div className="mx-auto flex justify-center items-center mt-10">
         <FileUpload />
       </div>

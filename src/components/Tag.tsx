@@ -20,7 +20,7 @@ export default function Tag({ tags }: TagProps) {
           <div
             onClick={() => setActiveTab(tag.id)}
             key={tag.id}
-            className={`w-full h-11 rounded-full flex justify-center items-center text-sm whitespace-nowrap py-2 px-5 cursor-pointer ${
+            className={`w-full h-11 rounded-full flex justify-center items-center text-sm whitespace-nowrap py-2 px-4 cursor-pointer ${
               active
                 ? "border border-[#F69626] text-[#F69626]"
                 : "bg-[#F3F4F6] text-[#55565B]"

@@ -27,10 +27,6 @@ export default function FileUpload() {
     reader.readAsDataURL(file);
   };
 
-//   const handleSubmit = () => {
-//     alert("Screenshot submitted!");
-//   };
-
   return (
       <div className="w-full text-center border border-gray-200 rounded-[40px] p-6 shadow-sm">
         {/* heading and subtitle */}
@@ -42,13 +38,14 @@ export default function FileUpload() {
         {/* Upload Area */}
         <label
           htmlFor="image-upload"
-          className="w-full h-[188px] flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-[16px] cursor-pointer transition bg-[#F3F4F6]"
+          className="w-full h-[188px] flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-[16px] cursor-pointer transition bg-[#F3F4F6] relative overflow-hidden"
         >
           {image ? (
             <img
               src={image}
               alt="Preview"
-              className="w-full h-full object-contain rounded-md"
+              className="max-w-full max-h-full w-auto h-auto object-contain rounded-md"
+              style={{ maxWidth: '100%', maxHeight: '100%' }}
             />
           ) : (
             <div className="flex flex-col items-center">
@@ -59,10 +56,6 @@ export default function FileUpload() {
           )}
         </label>
 
-        {/* remove button for now */}
-        { image && <button onClick={() => setImage(null)} className="w-full h-8 rounded-full flex justify-center items-center mt-4 text-sm bg-red-500 text-white cursor-pointer">Remove</button>}
-
-
         <input
           id="image-upload"
           type="file"
@@ -71,7 +64,11 @@ export default function FileUpload() {
           onChange={handleImageUpload}
         />
 
+        {/* error */}
         {error && <p className="text-red-500 text-xs mt-2">{error}</p>}
+
+        {/* remove button for now */}
+        { image && <button onClick={() => setImage(null)} className="w-full h-8 rounded-full flex justify-center items-center mt-4 text-sm bg-red-500 text-white cursor-pointer">Remove</button>}
         <div className="mt-4">
             <Button content="Submit App Screenshot" isDisabled={!image} />
         </div>
