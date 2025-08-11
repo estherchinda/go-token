@@ -20,17 +20,17 @@ export default function MainPage() {
 
   const selectedTask = tasks.find((task) => task.id === activeTab) || null;
   return (
-    <section className="bg-white min-h-screen rounded-2xl shadow-md p-4">
+    <section className="bg-white min-h-screen rounded-2xl md:shadow-md p-2 md:p-4">
       {/* filter and create task button */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-between items-center">
         <Tag tags={tags} />
-        <div className="w-[180px]">
+        <div className="w-full md:w-[180px]">
           <Button content="Create Task" icon={<Add color="#fff" size={20} />} />
         </div>
       </div>
 
-      {/* rest of page */}
-      <section className="flex flex-1 gap-6 items-start mt-10">
+      {/* lists */}
+      <section className="flex flex-col md:flex-row flex-1 gap-8 items-start mt-10">
         <div className="w-full">
           <Heading heading="Task Timeline" />
           <div className="space-y-4 mt-5">
@@ -46,6 +46,7 @@ export default function MainPage() {
             ))}
           </div>
         </div>
+
         {/* details panel */}
         <div className="w-full">
           <TaskDetails task={selectedTask} onClick={() => setActiveTab(0)} />

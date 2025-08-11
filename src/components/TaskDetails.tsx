@@ -1,7 +1,9 @@
 import type { TaskTypes } from "../types/task";
-import { CloseCircle, Folder } from "iconsax-react";
+import { CloseCircle, Folder, DocumentText } from "iconsax-react";
 import Heading from "./Heading";
 import Button from "./Button";
+import FileUpload from "./FileUpload";
+import { survey } from "../lib/demo-data";
 
 type DetailsProps = {
   task: TaskTypes | null;
@@ -17,8 +19,8 @@ export default function TaskDetails({ task, onClick }: DetailsProps) {
       </div>
     );
   return (
-    <div className="space-y-4">
-        {/* task details and close button */}
+    <div className="space-y-6">
+      {/* task details and close button */}
       <div className="flex justify-between items-center">
         <Heading heading="Task Details" className="text-[#393A3F]" />
         <CloseCircle onClick={onClick} size={20} color="#393A3F" />
@@ -43,23 +45,42 @@ export default function TaskDetails({ task, onClick }: DetailsProps) {
         This Survey is about {task.topic}
       </p>
 
-        {/* rewards section */}
-      <div className="flex items-center justify-between">
+      {/* instructions */}
+      <div className="h-[265px] w-full bg-[#F3F4F6] p-5 rounded-2xl space-y-2.5 my-4">
+        <div className="gap-2 flex items-center">
+            <DocumentText color="#F69626" size={30} variant="Bold" />
+            <h2 className="text-[#393A3F] text-xl font-bold leading-[32px]">Instructions</h2>
+        </div>
+        <ol className="space-y-2 mt-2 list-decimal ml-5 text-[#393A3F] text-sm leading-6">
+            {survey.map((s) => (
+                <li key={s.id}>{s.instruction}</li>
+            ))}
+        </ol>
+      </div>
+
+      {/* rewards section */}
+      <div className="flex items-center justify-between my-10">
         <Heading heading="Rewards:" className="text-[#393A3F]" />
         <div className="flex gap-2 items-center">
-            <div className="flex gap-1 items-center">
-                <img src="/fox.svg" alt="Mask" />
-                <p className="text-sm text-[#F69626] font-bold">{task.count}</p>
-            </div>
-            <div className="flex justify-center items-center bg-[#F4EDFD82] border border-[#F3F4F9] h-5 w-14 rounded-full py-0.5 px-1.5">
-                <span className="text-[#3C3C43] font-bold text-xs leading-5">~${task.amount}</span>
-            </div>
-            </div>
+          <div className="flex gap-1 items-center">
+            <img src="/fox.svg" alt="Mask" />
+            <p className="text-sm text-[#F69626] font-bold">{task.count}</p>
+          </div>
+          <div className="flex justify-center items-center bg-[#F4EDFD82] border border-[#F3F4F9] h-5 w-14 rounded-full py-0.5 px-1.5">
+            <span className="text-[#3C3C43] font-bold text-xs leading-5">
+              ~${task.amount}
+            </span>
+          </div>
+        </div>
       </div>
 
       {/* link button */}
       <div className="mt-4">
         <Button content="Link Instagram" />
+      </div>
+
+      <div className="mx-auto flex justify-center items-center mt-10">
+        <FileUpload />
       </div>
     </div>
   );

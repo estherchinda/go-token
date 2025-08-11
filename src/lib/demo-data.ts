@@ -81,3 +81,18 @@ export const tasks = [
         topic: "dolor sit amet consectetur. Elementum felis nulla facilisis est. Pellentesque mollis purus at vestibulum maecenas. "
     },
 ];
+
+export const survey = [
+    {
+        id: 1,
+        instruction: "This Survey is about dolor sit amet consectetur. Elementum felis nulla facilisis est.",
+    },
+    {
+        id: 2,
+        instruction: "This Survey is about dolor sit amet consectetur. Elementum felis nulla facilisis est.",
+    },
+    {
+        id: 3,
+        instruction: "This Survey is about dolor sit amet consectetur. Elementum felis nulla facilisis est.",
+    },
+]
