@@ -11,6 +11,13 @@ type DetailsProps = {
 };
 
 export default function TaskDetails({ task, onClick }: DetailsProps) {
+
+  const joinedUsers = [
+    { id: 1, image: '/woman.svg' },
+    { id: 2, image: '/woman.svg' },
+    { id: 3, image: '/woman.svg' },
+  ]
+
   if (!task)
     return (
       <div className="flex flex-col justify-center items-center h-[50vh]">
@@ -33,6 +40,11 @@ export default function TaskDetails({ task, onClick }: DetailsProps) {
           <span className="font-bold">{task.status}</span>
         </p>
         <div className="flex items-center gap-2">
+          <div className="w-14 flex items-center">
+            {joinedUsers.map(user => (
+              <img key={user.id} src={user.image} alt="User" className="h-[34px] w-[34px] rounded-full border border-[#FFFFFF] -ml-4" />
+            ))}
+          </div>
           <p className="text-xs text-[#75767B]">11/30 Joined</p>
         </div>
       </div>
