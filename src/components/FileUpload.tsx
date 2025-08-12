@@ -25,7 +25,11 @@ export default function CombinedFileUpload() {
 
     setError("");
     const reader = new FileReader();
-    reader.onload = () => setImage(reader.result);
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        setImage(reader.result);
+      }
+    };
     reader.readAsDataURL(file);
   };
 
